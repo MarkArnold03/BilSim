@@ -9,31 +9,53 @@ namespace BilSim.Services
 {
     public class DriverService : IDriverService
     {
-        private int _tiredness;
+        private DriverStatus driverStatus;
 
         public DriverService()
         {
-            _tiredness = 0;
+            driverStatus = new DriverStatus
+            {
+                Tiredness = 0
+            };
         }
 
         public DriverStatus GetDriverStatus()
         {
-            return new DriverStatus
-            {
-                Tiredness = _tiredness
-            };
+            return driverStatus;
         }
 
         public void IncreaseTiredness()
         {
-            _tiredness++;
-            Console.WriteLine("Förarens trötthet har ökat.");
+            if (driverStatus.Tiredness < 10)
+            {
+                driverStatus.Tiredness++;
+            }
+            Console.WriteLine("Förarens trötthetsnivå har ökat.");
+            Console.WriteLine();
         }
 
         public void Rest()
         {
-            _tiredness = 0;
-            Console.WriteLine("Föraren har vilat och är utvilad nu.");
+            driverStatus.Tiredness = 0;
+            Console.WriteLine("Föraren har tagit en rast och är nu utvilad.");
+            Console.WriteLine();
+        }
+
+        public string GetTirednessMessage()
+        {
+            if (driverStatus.Tiredness < 3)
+            {
+                return "Föraren är pigg och alert.";
+            }
+            else if (driverStatus.Tiredness >= 3 && driverStatus.Tiredness <= 6)
+            {
+                return "Föraren bör ta en paus snart.";
+            }
+            else
+            {
+                return "Föraren är mycket trött. Ta en rast så snart som möjligt!";
+            }
         }
     }
+
 }
