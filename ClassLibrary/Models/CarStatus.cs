@@ -13,9 +13,9 @@ namespace ClassLibrary.Models
     }
     public enum Direction
     {
-        Norrut,
-        Söderut,
-        Västerut,
-        Österut
+        North,
+        South,
+        East,
+        West
     }
 }
