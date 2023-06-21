@@ -11,16 +11,14 @@ namespace BilSim.Services
     {
         public void DisplayMenu()
         {
-            Console.WriteLine("Välj ett alternativ:");
-            Console.WriteLine("1. Visa bilens status");
-            Console.WriteLine("2. Visa förarens status");
-            Console.WriteLine("3. Sväng höger");
-            Console.WriteLine("4. Sväng vänster");
-            Console.WriteLine("5. Kör framåt");
-            Console.WriteLine("6. Kör bakåt");
-            Console.WriteLine("7. Tanka bilen");
-            Console.WriteLine("8. Ta en rast");
-            Console.WriteLine("9. Avsluta programmet");
+            Console.WriteLine("Välj ett kommando:");
+            Console.WriteLine("1. Sväng höger");
+            Console.WriteLine("2. Sväng vänster");
+            Console.WriteLine("3. Kör framåt");
+            Console.WriteLine("4. Kör bakåt");
+            Console.WriteLine("5. Tanka bilen");
+            Console.WriteLine("6. Ta en rast");
+            Console.WriteLine("7. Avsluta programmet");
         }
 
         public void DisplayCarStatus(CarStatus carStatus)
@@ -43,21 +41,18 @@ namespace BilSim.Services
             Console.WriteLine("Förarens status:");
             Console.WriteLine("Trötthet: " + driverStatus.Tiredness);
 
-            if (driverStatus.Tiredness < 4)
+            if (driverStatus.Tiredness >= 8)
                 Console.ForegroundColor = ConsoleColor.Red;
             else
                 Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.WriteLine("Trötthetsstatus: " + (driverStatus.Tiredness < 4 ? "RÖD" : "GRÖN"));
+            Console.WriteLine("Trötthetsstatus: " + (driverStatus.Tiredness >= 8 ? "RÖD" : "GRÖN"));
             Console.ResetColor();
         }
 
         public void DisplayErrorMessage(string errorMessage)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Fel: " + errorMessage);
-            Console.ResetColor();
-            Console.WriteLine();
         }
 
         public string GetUserInput()
@@ -66,5 +61,6 @@ namespace BilSim.Services
             return Console.ReadLine();
         }
     }
+
 
 }
