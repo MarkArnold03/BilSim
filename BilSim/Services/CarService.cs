@@ -18,7 +18,7 @@ namespace BilSim.Services
             carStatus = new CarStatus
             {
                 Direction = Direction.North,
-                FuelLevel = 10
+                FuelLevel = 100
             };
 
             driverStatus = new DriverStatus
