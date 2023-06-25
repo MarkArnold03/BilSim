@@ -10,6 +10,7 @@ namespace BilSim.Services
     public interface IDriverService
     {
         DriverStatus GetDriverStatus();
+        string GetTirednessMessage();
         void IncreaseTiredness();
         void Rest();
     }

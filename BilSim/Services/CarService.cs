@@ -11,6 +11,7 @@ namespace BilSim.Services
     {
         private CarStatus carStatus;
         private IDriverService driverService;
+        private DriverStatus driverStatus;
 
         public CarService(IDriverService driverService)
         {
@@ -19,12 +20,22 @@ namespace BilSim.Services
                 Direction = Direction.North,
                 FuelLevel = 10
             };
+
+            driverStatus = new DriverStatus
+            {
+                Tiredness=0
+            };
             this.driverService = driverService;
         }
+        
 
         public CarStatus GetCarStatus()
         {
             return carStatus;
+        }
+        public DriverStatus GetDriverStatus()
+        {
+            return driverStatus;
         }
 
         public void MoveForward()
@@ -51,7 +62,7 @@ namespace BilSim.Services
             else
             {
                 Console.WriteLine("Det är tomt på bensin. Du kan inte köra framåt.");
-            }
+            } 
             Console.WriteLine();
         }
 

@@ -6,8 +6,8 @@ namespace BilSim
     {
         static void Main(string[] args)
         {
-            ICarService carService = new CarService();
             IDriverService driverService = new DriverService();
+            ICarService carService = new CarService(driverService);
             IConsoleDisplayService displayService = new ConsoleDisplayService();
 
             

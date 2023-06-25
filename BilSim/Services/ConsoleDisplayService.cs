@@ -27,7 +27,7 @@ namespace BilSim.Services
             Console.WriteLine("Riktning: " + carStatus.Direction);
             Console.WriteLine("Bensinnivå: " + carStatus.FuelLevel + "%");
 
-            if (carStatus.FuelLevel < 30)
+            if (carStatus.FuelLevel < 3)
                 Console.ForegroundColor = ConsoleColor.Red;
             else
                 Console.ForegroundColor = ConsoleColor.Green;
