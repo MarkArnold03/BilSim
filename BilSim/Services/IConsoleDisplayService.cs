@@ -11,7 +11,7 @@ namespace BilSim.Services
     {
         void DisplayMenu();
         void DisplayCarStatus(CarStatus carStatus);
-        void DisplayDriverStatus(DriverStatus driverStatus);
+        void DisplayDriverStatus(DriverStatus driverStatus, Driver driver);
         void DisplayErrorMessage(string errorMessage);
         string GetUserInput();
     }

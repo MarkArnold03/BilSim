@@ -11,12 +11,13 @@ namespace CarSimTests
     public class DriverServiceTests
     {
         private DriverService driverService;
+        private RandomUserService randomUserService;
 
         [TestInitialize]
         public void Setup()
         {
             // Initialize the driverService instance
-            driverService = new DriverService();
+            driverService = new DriverService(randomUserService);
         }
 
         [TestMethod]

@@ -13,25 +13,29 @@ namespace BilSim
         private ICarService _carService;
         private IDriverService _driverService;
         private IConsoleDisplayService _consoleDisplayService;
-        public App(ICarService carService, IDriverService driverService, IConsoleDisplayService consoleDisplayService)
+        public App(ICarService carService, IDriverService driverService, IConsoleDisplayService consoleDisplayService, IRandomUserService randomUserService)
         {
             _carService = carService;
             _driverService = driverService;
             _consoleDisplayService = consoleDisplayService;
+            
         }
 
         public void Run()
         {
             bool isRunning = true;
             var message = "";
+            var driver = _driverService.GetRandomDriver();
 
             while (isRunning)
             {
                 _consoleDisplayService.DisplayMenu();
 
+
                 string userInput = _consoleDisplayService.GetUserInput();
                 var carStatus = _carService.GetCarStatus();
                 var driverStatus = _driverService.GetDriverStatus();
+               
                 switch (userInput)
                 {
                     case "1":
@@ -54,7 +58,7 @@ namespace BilSim
                         break;
                     case "3":
                         Console.Clear();
-                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10) 
+                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10)
                         {
                             _carService.MoveForward();
                             _driverService.IncreaseTiredness();
@@ -91,7 +95,7 @@ namespace BilSim
 
                 Console.WriteLine(message);
                 _consoleDisplayService.DisplayCarStatus(carStatus);
-                _consoleDisplayService.DisplayDriverStatus(driverStatus);
+                _consoleDisplayService.DisplayDriverStatus(driverStatus,driver);
             }
         }
     }

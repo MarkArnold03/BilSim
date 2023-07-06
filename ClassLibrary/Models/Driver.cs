@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace BilSim.Services
 {
-    public class DriverStatus
+    public class Driver
     {
-       
-        public int Tiredness { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
     }
 }

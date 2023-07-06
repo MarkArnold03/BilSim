@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,33 @@ namespace BilSim.Services
     public class DriverService : IDriverService
     {
         private DriverStatus driverStatus;
-
-        public DriverService()
+        private IRandomUserService randomUserService;
+        public DriverService(IRandomUserService randomUserService)
         {
             driverStatus = new DriverStatus
             {
                 Tiredness = 0
             };
+            this.randomUserService = randomUserService;
         }
 
         public DriverStatus GetDriverStatus()
         {
             return driverStatus;
+        }
+        public Driver GetRandomDriver()
+        {
+            RandomUserApiResponse randomUserResponse = randomUserService.GetRandomUser();
+            if (randomUserResponse != null && randomUserResponse.Results.Length > 0)
+            {
+                Driver driver = new Driver
+                {
+                    Name = $"{randomUserResponse.Results[0].Name.First} {randomUserResponse.Results[0].Name.Last}",
+                    Age = randomUserResponse.Results[0].Dob.Age
+                };
+                return driver;
+            }
+            return null;
         }
 
         public void IncreaseTiredness()

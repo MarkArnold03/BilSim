@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Models
 {
-    public class DriverStatus
+    public class RandomUserApiResponse
     {
-       
-        public int Tiredness { get; set; }
+        public RandomUserResult[] Results { get; set; }
     }
 }

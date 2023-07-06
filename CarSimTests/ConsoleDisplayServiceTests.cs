@@ -14,12 +14,13 @@ namespace CarSimTests
         private ConsoleDisplayService consoleDisplayService;
         private CarService carService;
         private DriverService driverService;
+        private RandomUserService randomUserService;
 
         [TestInitialize]
         public void Setup()
         {
             carService = new CarService(driverService);
-            driverService = new DriverService();
+            driverService = new DriverService(randomUserService);
             consoleDisplayService = new ConsoleDisplayService();
         }
 
@@ -49,8 +50,9 @@ namespace CarSimTests
         [TestMethod]
         public void DisplayDriverStatus_ShouldDisplayDriverStatus()
         {
-            // Arrange
+            // Arrange,
             var consoleOutput = new StringWriter();
+            var driver = new Driver();
             Console.SetOut(consoleOutput);
             DriverStatus driverStatus = new DriverStatus
             {
@@ -58,7 +60,7 @@ namespace CarSimTests
             };
 
             // Act
-            consoleDisplayService.DisplayDriverStatus(driverStatus);
+            consoleDisplayService.DisplayDriverStatus(driverStatus,driver);
             string output = consoleOutput.ToString().Trim();
 
             // Assert

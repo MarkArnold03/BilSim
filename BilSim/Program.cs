@@ -6,12 +6,14 @@ namespace BilSim
     {
         static void Main(string[] args)
         {
-            IDriverService driverService = new DriverService();
+            IRandomUserService randomService = new RandomUserService();
+            IDriverService driverService = new DriverService(randomService);
             ICarService carService = new CarService(driverService);
             IConsoleDisplayService displayService = new ConsoleDisplayService();
-
             
-            App app = new App(carService, driverService, displayService);
+
+
+            App app = new App(carService, driverService, displayService,randomService);
             app.Run();
         }
     }

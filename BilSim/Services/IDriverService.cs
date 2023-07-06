@@ -12,6 +12,7 @@ namespace BilSim.Services
         DriverStatus GetDriverStatus();
         string GetTirednessMessage();
         void IncreaseTiredness();
+        Driver GetRandomDriver();
         void Rest();
     }
 }

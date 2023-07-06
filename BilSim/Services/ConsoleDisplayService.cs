@@ -34,10 +34,15 @@ namespace BilSim.Services
 
             Console.WriteLine("Bensinstatus: " + (carStatus.FuelLevel < 30 ? "RÖD" : "GRÖN"));
             Console.ResetColor();
+            Console.WriteLine();
         }
 
-        public void DisplayDriverStatus(DriverStatus driverStatus)
+        public void DisplayDriverStatus(DriverStatus driverStatus, Driver driver)
         {
+            Console.WriteLine("Förarens information:");
+            Console.WriteLine("Namn: " + driver.Name);
+            Console.WriteLine("Ålder: " + driver.Age);
+            Console.WriteLine();
             Console.WriteLine("Förarens status:");
             Console.WriteLine("Trötthet: " + driverStatus.Tiredness);
 
@@ -48,11 +53,14 @@ namespace BilSim.Services
 
             Console.WriteLine("Trötthetsstatus: " + (driverStatus.Tiredness >= 8 ? "RÖD" : "GRÖN"));
             Console.ResetColor();
+
+             Console.WriteLine();
         }
 
         public void DisplayErrorMessage(string errorMessage)
         {
             Console.WriteLine("Fel: " + errorMessage);
+            Console.ForegroundColor = ConsoleColor.Red;
         }
 
         public string GetUserInput()
