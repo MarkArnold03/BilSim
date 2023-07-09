@@ -14,7 +14,7 @@ This is a console application that simulates car driving with driver status and 
 ### CarService
 
 - `GetCarStatus()`: Returns the car's status, including direction and fuel level.
-- `GetDriverStatus()`: Returns the car's status, including direction and fuel level.
+- `GetDriverStatus()`: Returns the driver's status.
 - `MoveForward()`: Moves the car forward if there is enough fuel.
 - `MoveBackward()`: Moves the car backward if there is enough fuel.
 - `TurnRight()`: Turns the car right if there is enough fuel.
