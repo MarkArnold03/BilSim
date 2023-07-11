@@ -42,7 +42,7 @@ namespace BilSim.Services
         {
             if (carStatus.FuelLevel >= 1)
             {
-                carStatus.FuelLevel--;
+                carStatus.FuelLevel -=20;
                 switch (carStatus.Direction)
                 {
                     case Direction.North:
@@ -70,7 +70,7 @@ namespace BilSim.Services
         {
             if (carStatus.FuelLevel >= 1)
             {
-                carStatus.FuelLevel--;
+                carStatus.FuelLevel -=10;
                 switch (carStatus.Direction)
                 {
                     case Direction.North:
@@ -102,7 +102,7 @@ namespace BilSim.Services
         {
             if (carStatus.FuelLevel >= 1)
             {
-                carStatus.FuelLevel--;
+                carStatus.FuelLevel -=10;
                 switch (carStatus.Direction)
                 {
                     case Direction.North:
@@ -134,7 +134,7 @@ namespace BilSim.Services
         {
             if (carStatus.FuelLevel >= 1)
             {
-                carStatus.FuelLevel--;
+                carStatus.FuelLevel -=10;
                 switch (carStatus.Direction)
                 {
                     case Direction.North:
@@ -164,7 +164,7 @@ namespace BilSim.Services
 
         public void Refuel()
         {
-            carStatus.FuelLevel = 10;
+            carStatus.FuelLevel = 100;
             Console.WriteLine("Bilen har tankats och bensinnivån är nu full.");
             Console.WriteLine();
         }

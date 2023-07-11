@@ -12,6 +12,7 @@ namespace BilSim.Services
     {
         private DriverStatus driverStatus;
         private IRandomUserService randomUserService;
+        private CarStatus carStatus;
         public DriverService(IRandomUserService randomUserService)
         {
             driverStatus = new DriverStatus
@@ -42,6 +43,7 @@ namespace BilSim.Services
 
         public void IncreaseTiredness()
         {
+            
             if (driverStatus.Tiredness < 10)
             {
                 driverStatus.Tiredness++;
@@ -72,6 +74,23 @@ namespace BilSim.Services
                 return "Föraren är mycket trött. Ta en rast så snart som möjligt!";
             }
         }
+
+        public string GetFeulMessage()
+        {
+            if (carStatus.FuelLevel > 30)
+            {
+                return "Bilen har tillräckligt besin";
+            }
+            else if (carStatus.FuelLevel <= 30 && carStatus.FuelLevel <= 60)
+            {
+                return "Bilen Bor tankas snart";
+            }
+            else
+            {
+                return "Det är tomt på bensin";
+            }
+        }
+
     }
 
 }

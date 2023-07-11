@@ -40,7 +40,7 @@ namespace BilSim
                 {
                     case "1":
                         Console.Clear();
-                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10)
+                        if (carStatus.FuelLevel != 0 && driverStatus.Tiredness != 10)
                         {
                             _carService.TurnRight();
                             _driverService.IncreaseTiredness();
@@ -49,7 +49,7 @@ namespace BilSim
                         break;
                     case "2":
                         Console.Clear();
-                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10)
+                        if (carStatus.FuelLevel != 0 && driverStatus.Tiredness != 10)
                         {
                             _carService.TurnLeft();
                             _driverService.IncreaseTiredness();
@@ -58,7 +58,7 @@ namespace BilSim
                         break;
                     case "3":
                         Console.Clear();
-                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10)
+                        if (carStatus.FuelLevel != 0 && driverStatus.Tiredness != 10)
                         {
                             _carService.MoveForward();
                             _driverService.IncreaseTiredness();
@@ -67,7 +67,7 @@ namespace BilSim
                         break;
                     case "4":
                         Console.Clear();
-                        if (carStatus.FuelLevel != 0 || driverStatus.Tiredness != 10)
+                        if (carStatus.FuelLevel != 0 && driverStatus.Tiredness != 10)
                         {
                             _carService.MoveBackward();
                             _driverService.IncreaseTiredness();
@@ -94,6 +94,10 @@ namespace BilSim
                 }
 
                 Console.WriteLine(message);
+                if(carStatus.FuelLevel < 0)
+                {
+                    carStatus.FuelLevel = 0;
+                }
                 _consoleDisplayService.DisplayCarStatus(carStatus);
                 _consoleDisplayService.DisplayDriverStatus(driverStatus,driver);
             }
