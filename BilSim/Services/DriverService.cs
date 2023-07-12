@@ -75,21 +75,7 @@ namespace BilSim.Services
             }
         }
 
-        public string GetFeulMessage()
-        {
-            if (carStatus.FuelLevel > 30)
-            {
-                return "Bilen har tillräckligt besin";
-            }
-            else if (carStatus.FuelLevel <= 30 && carStatus.FuelLevel <= 60)
-            {
-                return "Bilen Bor tankas snart";
-            }
-            else
-            {
-                return "Det är tomt på bensin";
-            }
-        }
+        
 
     }
 

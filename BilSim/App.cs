@@ -2,6 +2,7 @@
 using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace BilSim
             bool isRunning = true;
             var message = "";
             var driver = _driverService.GetRandomDriver();
+            var feulMessage = "";
 
             while (isRunning)
             {
@@ -46,6 +48,7 @@ namespace BilSim
                             _driverService.IncreaseTiredness();
                         }
                         message = _driverService.GetTirednessMessage();
+                        feulMessage = _carService.GetFeulMessage();
                         break;
                     case "2":
                         Console.Clear();
@@ -55,6 +58,7 @@ namespace BilSim
                             _driverService.IncreaseTiredness();
                         }
                         message = _driverService.GetTirednessMessage();
+                        feulMessage = _carService.GetFeulMessage();
                         break;
                     case "3":
                         Console.Clear();
@@ -64,6 +68,7 @@ namespace BilSim
                             _driverService.IncreaseTiredness();
                         }
                         message = _driverService.GetTirednessMessage();
+                        feulMessage = _carService.GetFeulMessage();
                         break;
                     case "4":
                         Console.Clear();
@@ -73,6 +78,7 @@ namespace BilSim
                             _driverService.IncreaseTiredness();
                         }
                         message = _driverService.GetTirednessMessage();
+                        feulMessage = _carService.GetFeulMessage();
                         break;
                     case "5":
                         Console.Clear();
@@ -94,6 +100,8 @@ namespace BilSim
                 }
 
                 Console.WriteLine(message);
+                Console.WriteLine(feulMessage);
+                Console.WriteLine();
                 if(carStatus.FuelLevel < 0)
                 {
                     carStatus.FuelLevel = 0;

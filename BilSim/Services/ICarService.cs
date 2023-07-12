@@ -14,6 +14,8 @@ namespace BilSim.Services
         void TurnLeft();
         void MoveForward();
         void MoveBackward();
+        string GetFeulMessage();
         void Refuel();
+
     }
 }
