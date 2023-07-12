@@ -174,7 +174,7 @@ namespace BilSim.Services
             {
                 return "Bilen har tillräckligt besin";
             }
-            else if (carStatus.FuelLevel <= 30 && carStatus.FuelLevel <= 60)
+            else if (carStatus.FuelLevel <= 10 && carStatus.FuelLevel <= 30)
             {
                 return "Bilen Bor tankas snart";
             }
